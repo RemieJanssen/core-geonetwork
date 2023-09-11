@@ -1,0 +1,10 @@
+diff a/web-ui/src/main/resources/catalog/locales/nl-admin.json b/web-ui/src/main/resources/catalog/locales/nl-admin.json	(rejected hunks)
+@@ -437,6 +440,8 @@
+     "harvester-filesystemHelp": "Harvest uit een map op de server",
+     "harvester-geoPREST": "GeoPortal REST",
+     "harvester-geoPRESTHelp": "Harvest uit een ESRI GeoPortal via de REST API.",
++    "harvester-dcatap": "GeoPortal DCAT-AP",
++    "harvester-dcatapHelp": "Harvest uit een DCAT-AP GeoPortal via de catalog API.",
+     "harvester-geonetwork": "GeoNetwork",
+     "harvester-geonetwork20": "GeoNetwork (Oude server)",
+     "harvester-geonetwork20Help": "Harvest GeoNetwork catalogus in versie 2.0 of lager. Let op: het harvesten van oude GeoNetwork catalogi is riskant. De oude nodes hebben geen unieke site-id's en dit kan onvoorspelbare resultaten (zoals het verwijderen van knooppunten van andere harvestings) veroorzaken .",

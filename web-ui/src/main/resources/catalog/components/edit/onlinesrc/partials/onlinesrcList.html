@@ -74,6 +74,22 @@
               <span data-translate="">linkToSibling</span>
             </a>
           </li>
+          <li data-ng-show="::isCategoryEnable('dcatapsource')">
+            <a href=""
+               data-ng-click="onlinesrcService.onOpenPopup('dcatapsource')">
+              <i class="fa gn-icon-source"></i>
+              <i class="icon-external-link"></i>&nbsp;
+              <span data-translate="">linkToDcatapsource</span>
+            </a>
+          </li>
+          <li data-ng-show="::isCategoryEnable('dcataprelation')">
+            <a href=""
+               data-ng-click="onlinesrcService.onOpenPopup('dcataprelation')">
+              <i class="fa gn-icon-source"></i>
+              <i class="icon-external-link"></i>&nbsp;
+              <span data-translate="">linkToDcataprelation</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

@@ -474,10 +474,11 @@
         <xsl:value-of select="gn-fn-render:get-schema-strings($schemaStrings, @name)"/>
       </xsl:if>
     </xsl:variable>
-
+    <xsl:variable name="fieldXpath" select="@xpath" />
     <xsl:for-each select="$nodes">
       <xsl:apply-templates mode="render-field">
         <xsl:with-param name="fieldName" select="$fieldName"/>
+        <xsl:with-param name="xpath" select="$fieldXpath"/>
       </xsl:apply-templates>
     </xsl:for-each>
   </xsl:template>
@@ -534,6 +535,7 @@
             <xsl:for-each select="$nodes">
               <xsl:apply-templates mode="render-field">
                 <xsl:with-param name="fieldName" select="$fieldName"/>
+            <xsl:with-param name="xpath" select="$fieldXpath"/>
               </xsl:apply-templates>
             </xsl:for-each>
           </xsl:for-each>

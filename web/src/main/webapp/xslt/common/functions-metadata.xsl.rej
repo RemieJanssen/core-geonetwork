@@ -1,0 +1,27 @@
+diff a/web/src/main/webapp/xslt/common/functions-metadata.xsl b/web/src/main/webapp/xslt/common/functions-metadata.xsl	(rejected hunks)
+@@ -454,9 +454,16 @@
+   </xsl:function>
+   
+   <!-- Return if a flat mode exception has been defined in the current view for a field. -->
++  <xsl:function name="gn-fn-metadata:isFieldFlatModeException" as="xs:boolean">
++    <xsl:param name="configuration" as="node()"/>
++    <xsl:param name="name" as="xs:string"/>
++    <xsl:value-of select="gn-fn-metadata:isFieldFlatModeException($configuration, $name, '')"/>
++  </xsl:function>
++
+   <xsl:function name="gn-fn-metadata:isFieldFlatModeException" as="xs:boolean">
+     <xsl:param name="configuration" as="node()?"/>
+     <xsl:param name="name" as="xs:string"/>
++    <xsl:param name="xpath" as="xs:string"/>
+ 
+     <xsl:choose>
+       <xsl:when test="not($configuration)">
+@@ -464,7 +471,7 @@
+       </xsl:when>
+       <xsl:otherwise>
+         <xsl:variable name="exception"
+-                      select="count($configuration/flatModeExceptions/for[@name = $name])"/>
++                      select="count($configuration/flatModeExceptions/for[@name = $name and (not(@xpath) or @xpath = '' or @xpath = $xpath)])"/>
+ 
+         <xsl:value-of select="if ($exception > 0)
+                       then true()

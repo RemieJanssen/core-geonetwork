@@ -1,0 +1,17 @@
+diff a/web-ui/src/main/resources/catalog/locales/fr-admin.json b/web-ui/src/main/resources/catalog/locales/fr-admin.json	(rejected hunks)
+@@ -437,6 +440,8 @@
+     "harvester-filesystemHelp": "Moissonner à partir d'un répertoire du serveur où se trouve le catalogue",
+     "harvester-geoPREST": "ESRI GeoPortal REST",
+     "harvester-geoPRESTHelp": "Moissonner un noeud ESRI GeoPortal en utilisant l'API REST.",
++    "harvester-dcatap": "GeoPortal DCAT-AP",
++    "harvester-dcatapHelp": "Moissonner un noeud DCAT-AP GeoPortal en utilisant l'API catalogue.",
+     "harvester-geonetwork": "Catalogue GeoNetwork",
+     "harvester-geonetwork20": "Catalogue GeoNetwork (Ancienne version)",
+     "harvester-geonetwork20Help": "Moissoner un noeud GeoNetwork de version 2.0 ou inférieur. Veuillez noter que le moissonnage d'anciens noeuds est dangereux. Les anciens noeuds n'ont pas d'identifiants uniques de sites, ce qui pourrait entraîner des résultats imprévisibles (comme la suppression de noeuds d'autres moissonnages).",
+@@ -1426,4 +1431,4 @@
+     "removeAllLinksAndStatus": "Supprimer tout",
+     "removeAllLinksAndStatusConfirm": "Êtes vous sûrs de vouloir supprimer tout l'historique ?",
+     "moreLinks": "Afficher plus de liens ..."
+-}
+\ No newline at end of file
++}

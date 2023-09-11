@@ -1,0 +1,24 @@
+diff a/web-ui/src/main/resources/catalog/components/edit/onlinesrc/OnlineSrcDirective.js b/web-ui/src/main/resources/catalog/components/edit/onlinesrc/OnlineSrcDirective.js	(rejected hunks)
+@@ -1391,6 +1391,22 @@
+                         label: $translate.instant('linkToSource')
+                       };
+                     }
++                    else if (scope.mode === 'dcatapsource') {
++                      searchParams = {
++                        hitsPerPage: 10
++                      };
++                      scope.btn = {
++                        label: $translate.instant('linkToDcatapsource')
++                      };
++                    }
++                    else if (scope.mode === 'dcataprelation') {
++                      searchParams = {
++                        hitsPerPage: 10
++                      };
++                      scope.btn = {
++                        label: $translate.instant('linkToDcataprelation')
++                      };
++                    }
+                     scope.$broadcast('resetSearch', searchParams);
+                   });
+ 

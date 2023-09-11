@@ -427,21 +427,24 @@
           <xsl:if test="($nonExistingChildParent/* and not(@ifNotExist)) or
             ($nonExistingChildParent/* and count($nodes/*) = 0 and @ifNotExist)">
             <xsl:variable name="childName" select="@or"/>
+            <xsl:variable name="xpath" select="@xpath"/>
 
             <xsl:for-each select="$nonExistingChildParent/*/gn:child[@name = $childName]">
               <xsl:variable name="name" select="concat(@prefix, ':', @name)"/>
 
-              <xsl:variable name="labelConfig"
-                            select="gn-fn-metadata:getLabel($schema, $name, $labels)"/>
+              <xsl:if test="ends-with($xpath,$name) or not($xpath)">
+                <xsl:variable name="labelConfig"
+                              select="gn-fn-metadata:getLabel($schema, $name, $labels)"/>
 
-              <saxon:call-template name="{concat('dispatch-', $schema)}">
-                <xsl:with-param name="base" select="."/>
-                <xsl:with-param name="overrideLabel"
-                                select="if ($configName != '')
-                                        then $strings/*[name() = $configName]
-                                        else $labelConfig/label"/>
-                <xsl:with-param name="config" select="$config"/>
-              </saxon:call-template>
+                <saxon:call-template name="{concat('dispatch-', $schema)}">
+                  <xsl:with-param name="base" select="."/>
+                  <xsl:with-param name="overrideLabel"
+                                  select="if ($configName != '')
+                                          then $strings/*[name() = $configName]
+                                          else $labelConfig/label"/>
+                  <xsl:with-param name="config" select="$config"/>
+                </saxon:call-template>
+              </xsl:if>
             </xsl:for-each>
           </xsl:if>
 
@@ -779,14 +782,14 @@
 
       <!-- If multiple elements $elementName contains multiple values. Use the first one in getLabel to avoid failure. -->
       <xsl:variable name="labelConfig"
-                    select="gn-fn-metadata:getLabel($schema, $elementName[1], $labels)"/>
+                    select="gn-fn-metadata:getLabel($schema, $elementName[1], $labels, '', '', concat(@in,'/',$elementName[1]))"/>
       <xsl:variable name="name"
                     select="if ($btnName != '')
                             then $btnName
                             else $labelConfig/label"/>
       <xsl:variable name="class" select="if (@class != '') then @class else $labelConfig/class"/>
       <xsl:variable name="btnLabel" select="if (@btnLabel != '') then @btnLabel else $labelConfig/btnLabel"/>
-      <xsl:variable name="btnClass" select="if (@btnClass != '') then @btnLabel else $labelConfig/btnClass"/>
+      <xsl:variable name="btnClass" select="if (@btnClass != '') then @btnClass else $labelConfig/btnClass"/>
       <xsl:variable name="btnLabelTranslation" select="$strings/*[name() = $btnLabel]"/>
 
       <xsl:choose>
@@ -827,7 +830,7 @@
               <xsl:with-param name="parentEditInfo" select="../gn:element"/>
               <xsl:with-param name="class" select="$class"/>
               <xsl:with-param name="btnClass" select="$btnClass"/>
-              <xsl:with-param name="btnLabel" select="$btnLabelTranslation"/>
+              <xsl:with-param name="btnLabel" select="if ($btnLabelTranslation != '') then $btnLabelTranslation else $btnLabel"/>
             </xsl:call-template>
           </xsl:for-each>
         </xsl:otherwise>

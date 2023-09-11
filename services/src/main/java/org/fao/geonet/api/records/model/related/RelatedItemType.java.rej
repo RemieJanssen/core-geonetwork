@@ -1,0 +1,12 @@
+diff a/services/src/main/java/org/fao/geonet/api/records/model/related/RelatedItemType.java b/services/src/main/java/org/fao/geonet/api/records/model/related/RelatedItemType.java	(rejected hunks)
+@@ -17,7 +17,9 @@ public enum RelatedItemType {
+     hassources,
+     related,
+     onlines,
+-    thumbnails;
++    thumbnails,
++    dcatapsources,
++    dcataprelations;
+ 
+     public static RelatedItemType find(String lookupName) {
+         for (RelatedItemType value : values()) {

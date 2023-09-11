@@ -280,6 +280,12 @@
                     //  }
                     //  return defaultTab;
                     //}
+
+                  //Default tab id for dcat-ap metadata is "defaultDataset" in order to differentiate it's label
+                  //with "default" view.
+                  'dcat-ap': function (md) {
+                    return 'defaultDataset';
+                  }
                   };
                   if (schemaCustomConfig) {
                     var fn = schemaCustomConfig[$scope.mdSchema];

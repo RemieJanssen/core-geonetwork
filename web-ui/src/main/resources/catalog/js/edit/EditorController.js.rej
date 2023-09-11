@@ -1,0 +1,34 @@
+diff a/web-ui/src/main/resources/catalog/js/edit/EditorController.js b/web-ui/src/main/resources/catalog/js/edit/EditorController.js	(rejected hunks)
+@@ -241,6 +247,7 @@
+                   displayAttributes: $location.search()['displayAttributes'] === 'true',
+                   displayTooltips: $location.search()['displayTooltips'] === 'true',
+                   displayTooltipsMode: $location.search()['displayTooltipsMode'] || '',
++                  displaySections: ($location.search()['displaySections'] || 'true') === 'true',
+                   compileScope: $scope,
+                   formScope: $scope.$new(),
+                   sessionStartTime: moment(),
+@@ -274,6 +281,9 @@
+                     + gnCurrentEdit.displayTooltipsMode ;
+                 }
+ 
++                editorFormUrl += '&displaySections='
++                	+ (gnCurrentEdit.displaySections === true ? 'true' : 'false');
++
+                 gnEditor.load(editorFormUrl).then(function() {
+                   // $scope.onFormLoad();
+                   // Once the editor form is loaded, then
+@@ -382,6 +392,14 @@
+           gnUtilityService.scrollTo();
+         }
+ 
++        // If switching between default and advanced view (or the opposite)
++        // Stay on the current tab (Dataset/Distribution)
++        if ($('#currTab')[0].value === 'defaultDistribution' && tabIdentifier === 'advancedDataset') {
++          tabIdentifier = 'advancedDistribution';
++        } else if ($('#currTab')[0].value === 'advancedDistribution' && tabIdentifier === 'defaultDataset') {
++          tabIdentifier = 'defaultDistribution';
++        }
++
+         $('#currTab')[0].value = tabIdentifier;
+         $('#flat')[0].value = mode === 'flat';
+ 
