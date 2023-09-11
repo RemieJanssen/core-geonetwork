@@ -613,6 +613,11 @@
       <artifactId>gn-schema-iso19115-3.2018</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>schema-dcat-ap</artifactId>
+      <version>${gn.schemas.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -1193,6 +1198,10 @@
                       <targetPath>${schema-plugins.dir}</targetPath>
                     </resource>
                     -->
+                    <resource>
+                      <directory>${project.basedir}/../schemas/dcat-ap/src/main/plugin</directory>
+                      <targetPath>${basedir}/src/main/webapp/WEB-INF/data/config/schema_plugins</targetPath>
+                    </resource>
                   </resources>
                 </configuration>
               </execution>

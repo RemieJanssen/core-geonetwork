@@ -10,3 +10,6 @@
 [submodule "docs/manuals"]
 	path = docs/manuals
 	url = https://github.com/geonetwork/doc.git
+[submodule "schemas/dcat-ap"]
+	path = schemas/dcat-ap
+	url = https://github.com/metadata101/dcat-ap1.1.git
