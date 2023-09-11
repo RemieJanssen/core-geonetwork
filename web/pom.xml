@@ -616,7 +616,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>schema-dcat-ap</artifactId>
-      <version>${gn.schemas.version}</version>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
